@@ -1,7 +1,24 @@
-import React from "react";
+import { useState } from "react";
+import { AsyncPaginate } from "react-select-async-paginate";
 
-const search = () => {
-  return <div>Search</div>;
+const Search = ({ onSearchChange }) => {
+  const [search, setSearch] = useState(null);
+
+  const loadOptions = () => {};
+
+  const handleOnChange = (searchData) => {
+    setSearch(searchData);
+    onSearchChange(searchData);
+  };
+
+  return (
+    <AsyncPaginate
+      placeholder="Search for city"
+      debounceTimeout={600}
+      value={search}
+      onChange={handleOnChange}
+      loadOptions={loadOptions}
+    />
+  );
 };
-
-export default search;
+export default Search;
