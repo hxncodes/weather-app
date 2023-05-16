@@ -8,11 +8,18 @@ const Search = ({ onSearchChange }) => {
   const loadOptions = async (inputValue) => {
     try {
       const response = await fetch(
-        `${geoApiUrl}?minPopulation=100000&namePrefix=${inputValue}`,
+        `${geoApiUrl}?minPopulation=1000&namePrefix=${inputValue}`,
         geoApiOptions
       );
       const result = await response.json();
-      return console.log(result);
+      return {
+        options: result.data.map((city) => {
+          return {
+            value: `${city.latitude}, ${city.longitude}`,
+            label: `${city.name}, ${city.countryCode}`,
+          };
+        }),
+      };
     } catch (err) {
       return console.log(err);
     }
