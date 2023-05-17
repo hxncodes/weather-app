@@ -1,6 +1,7 @@
 import React from "react";
-import Search from "./components/search/search";
+import Search from "./components/Search";
 import Layout from "./components/layout";
+import CurrentWeather from "./components/CurrentWeather";
 
 const App = () => {
   const handleOnSearchChange = (searchData) => {
@@ -9,8 +10,11 @@ const App = () => {
 
   return (
     <div className="w-full bg-blue-300 py-4">
-      <Search onSearchChange={handleOnSearchChange} />
-      <Layout />
+      <div className="container mx-auto">
+        <Search onSearchChange={handleOnSearchChange} />
+        <CurrentWeather />
+        <Layout />
+      </div>
     </div>
   );
 };

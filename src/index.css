@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.weather-card {
+    @apply w-[300px] rounded-md mt-2.5 mx-auto p-4 bg-[#333] text-[#fff] shadow-[10px_-2px_20px_2px_rgba(0,0,0,0.3)]
+}
+
+.top, .bottom {
+    @apply flex items-center justify-between
+}
+
+.parameter-row {
+    @apply flex justify-between
+}
+
+.parameter-label {
+    @apply text-left font-normal text-[12px]
+}
+
+.parameter-value {
+    @apply text-right font-semibold text-[12px]
+}
