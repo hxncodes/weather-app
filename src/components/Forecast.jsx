@@ -41,7 +41,7 @@ const Forecast = ({ data }) => {
                     src={`icons/${item.weather[0].icon}.png`}
                     alt={item.weather[0].description}
                   />
-                  <label htmlFor=""></label>
+                  <label htmlFor="">{forecastDays[idx]}</label>
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
