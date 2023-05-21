@@ -1,40 +1,46 @@
 import React from "react";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ data }) => {
   return (
     <div className="weather-card">
       <div className="top">
         <div>
-          <p className="font-semibold text-lg tracking-widest">City Name</p>
+          <p className="font-semibold text-lg tracking-widest">{data.city}</p>
           <p className="font-normal leading-none text-sm mt-0">
-            Current Weather
+            {data.weather[0].description}
           </p>
         </div>
-        <img src="" alt="weather" className="w-[100px] " />
+        <img
+          src={`icons/${data.weather[0].icon}.png`}
+          alt={data.weather[0].description}
+          className="w-[100px]"
+        />
       </div>
       <div className="bottom">
-        <p className="font-semibold text-7xl w-auto tracking-tighter my-2.5">
-          18°C
+        <p className="font-semibold text-6xl w-auto tracking-tighter my-2.5">
+          {Math.round(data.main.temp)}°C
         </p>
-        <div className="w-full px-5">
+        <div className="w-full pl-4">
           <div className="parameter-row">
             <span className="parameter-label">Details</span>
           </div>
           <div className="parameter-row">
             <span className="parameter-label">Feels Like</span>
-            <span className="parameter-value">22° C</span>
+            <span className="parameter-value">
+              {Math.round(data.main.feels_like)}°C
+            </span>
           </div>
           <div className="parameter-row">
             <span className="parameter-label">Winds</span>
-            <span className="parameter-value">2 m/s</span>
+            <span className="parameter-value">{data.wind.speed} m/s</span>
           </div>
           <div className="parameter-row">
             <span className="parameter-label">Humidity</span>
-            <span className="parameter-value">15 %</span>
+            <span className="parameter-value">{data.main.humidity} %</span>
           </div>
           <div className="parameter-row">
             <span className="parameter-label">Pressure</span>
-            <span className="parameter-value">15 hpa</span>
+            <span className="parameter-value">{data.main.pressure} hpa</span>
           </div>
         </div>
       </div>
