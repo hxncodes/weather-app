@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Search from "./components/Search";
 import CurrentWeather from "./components/CurrentWeather";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
+import Forecast from "./components/Forecast";
 
 const App = () => {
   // Hooks to store weather and forecast data
@@ -39,6 +40,7 @@ const App = () => {
       <div className="container mx-auto">
         <Search onSearchChange={handleOnSearchChange} />
         {currentWeather && <CurrentWeather data={currentWeather} />}
+        {forecast && <Forecast data={forecast} />}
       </div>
     </div>
   );
