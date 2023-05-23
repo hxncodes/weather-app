@@ -7,7 +7,27 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 
+const weekDays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Staurday",
+  "Sunday",
+];
+
 const Forecast = ({ data }) => {
+  // Geeting todays day
+  const today = new Date().getDay();
+
+  // Arranging a week start from tomorrow
+  const forecastDays = weekDays
+    .slice(today, weekDays.length)
+    .concat(weekDays.slice(0, today));
+
+  console.log(forecastDays);
+
   return (
     <div>
       <label>Daily</label>
@@ -21,6 +41,7 @@ const Forecast = ({ data }) => {
                     src={`icons/${item.weather[0].icon}.png`}
                     alt={item.weather[0].description}
                   />
+                  <label htmlFor=""></label>
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
