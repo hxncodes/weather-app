@@ -21,3 +21,9 @@
 .parameter-value {
     @apply text-right font-semibold text-[12px]
 }
+.detail-item {
+    @apply flex items-center h-7 justify-between
+}
+
+.detail-item label:first-child { @apply text-[#757575] }
+.detail-item label:last-child {@apply text-[#212121]}
