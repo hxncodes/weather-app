@@ -32,16 +32,12 @@ const App = () => {
       .catch((error) => console.log(error));
   };
 
-  console.log(currentWeather);
-  console.log(forecast);
-
   return (
     <div className="w-full bg-blue-300 py-4">
       <div className="container mx-auto">
         <Search onSearchChange={handleOnSearchChange} />
         {currentWeather && <CurrentWeather data={currentWeather} />}
         {forecast && <Forecast data={forecast} />}
-        {/* <Forecast /> */}
       </div>
     </div>
   );

@@ -26,8 +26,6 @@ const Forecast = ({ data }) => {
     .slice(today, weekDays.length)
     .concat(weekDays.slice(0, today));
 
-  console.log(forecastDays);
-
   return (
     <div>
       <label className="text-2xl font-bold">Daily</label>
